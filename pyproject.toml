@@ -67,3 +67,7 @@ Repository = "https://github.com/eminsk/nanorecall"
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
+
+[tool.setuptools.package-data]
+nanorecall = ["web/*"]
+
