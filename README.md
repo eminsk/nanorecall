@@ -2,12 +2,14 @@
 
 <p align="center">
   <a href="https://colab.research.google.com/github/eminsk/nanorecall/blob/main/notebooks/nanorecall_quickstart.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"></a>
+  <a href="https://github.com/eminsk/nanorecall/actions/workflows/ci.yml"><img src="https://github.com/eminsk/nanorecall/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/eminsk/nanorecall/stargazers"><img src="https://img.shields.io/github/stars/eminsk/nanorecall?style=flat-square&logo=github&color=00f2fe" alt="Stars"></a>
   <a href="https://pypi.org/project/nanorecall/"><img src="https://img.shields.io/badge/pypi-v0.1.0-orange?style=flat-square" alt="PyPI"></a>
   <a href="https://github.com/eminsk/nanovector"><img src="https://img.shields.io/badge/powered%20by-NanoVector%20AVX2-4facfe?style=flat-square" alt="NanoVector"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat-square" alt="License"></a>
   <img src="https://img.shields.io/badge/telemetry-0%25%20(100%25%20offline)-brightgreen?style=flat-square" alt="Privacy">
   <img src="https://img.shields.io/badge/hardware-No%20NPU%20Required-blueviolet?style=flat-square" alt="Hardware">
+
 </p>
 
 
