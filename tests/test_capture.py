@@ -55,3 +55,18 @@ def test_capture_and_save(temp_capture_dir):
     res2 = engine.capture_frame(force_save=False)
     # If the screen hasn't changed, is_duplicate is True
     assert isinstance(res2.is_duplicate, bool)
+
+
+def test_rgba_to_jpeg_compatibility(temp_capture_dir):
+    engine = ScreenCaptureEngine(storage_dir=temp_capture_dir, format="JPEG")
+    # Simulate RGBA image (as returned on macOS Retina displays)
+    rgba_img = Image.new("RGBA", (100, 100), color=(255, 100, 50, 200))
+    from unittest.mock import patch
+    with patch("PIL.ImageGrab.grab", return_value=rgba_img):
+        res = engine.capture_frame(force_save=True)
+        assert res.image_path is not None
+        assert os.path.exists(res.image_path)
+        # Verify saved JPEG is valid
+        loaded = Image.open(res.image_path)
+        assert loaded.mode == "RGB"
+

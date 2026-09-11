@@ -107,6 +107,12 @@ class ScreenCaptureEngine:
         # Update last fingerprint
         self._last_fingerprint = self._compute_fingerprint(raw_img)
 
+        # Prepare image for saving (convert RGBA/P to RGB for universal JPEG/WEBP safety)
+        if raw_img.mode != "RGB":
+            save_img = raw_img.convert("RGB")
+        else:
+            save_img = raw_img
+
         # Save primary frame
         ext = "webp" if self.format == "WEBP" else "jpg"
         filename = f"{timestamp}.{ext}"
@@ -114,18 +120,22 @@ class ScreenCaptureEngine:
 
         save_fmt = "WEBP" if self.format == "WEBP" else "JPEG"
         try:
-            raw_img.save(image_path, format=save_fmt, quality=self.quality)
+            save_img.save(image_path, format=save_fmt, quality=self.quality)
         except Exception:
             # Fallback to PNG or JPEG if WEBP codec missing
             filename = f"{timestamp}.jpg"
             image_path = self.storage_dir / filename
-            raw_img.save(image_path, format="JPEG", quality=self.quality)
+            save_img.save(image_path, format="JPEG", quality=self.quality)
 
         # Save thumbnail for fast dashboard rendering
         thumb_path = self.thumbs_dir / filename
-        thumb = raw_img.copy()
+        thumb = save_img.copy()
         thumb.thumbnail(self.thumb_size, Image.Resampling.BILINEAR)
-        thumb.save(thumb_path, format=save_fmt, quality=70)
+        try:
+            thumb.save(thumb_path, format=save_fmt, quality=70)
+        except Exception:
+            thumb.save(thumb_path, format="JPEG", quality=70)
+
 
         return FrameCaptureResult(
             image=raw_img,
