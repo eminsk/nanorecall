@@ -37,7 +37,11 @@ htmlcov/
 *.nvec
 
 
+# Local Drafts & Articles (not for git)
+articles/
+
 # IDEs
 .vscode/
 .idea/
 *.swp
+
