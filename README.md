@@ -1,6 +1,7 @@
 # ⚡ NanoRecall: 100% Private Desktop Memory & Screen Search
 
 <p align="center">
+  <a href="https://colab.research.google.com/github/eminsk/nanorecall/blob/main/notebooks/nanorecall_quickstart.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"></a>
   <a href="https://github.com/eminsk/nanorecall/stargazers"><img src="https://img.shields.io/github/stars/eminsk/nanorecall?style=flat-square&logo=github&color=00f2fe" alt="Stars"></a>
   <a href="https://pypi.org/project/nanorecall/"><img src="https://img.shields.io/badge/pypi-v0.1.0-orange?style=flat-square" alt="PyPI"></a>
   <a href="https://github.com/eminsk/nanovector"><img src="https://img.shields.io/badge/powered%20by-NanoVector%20AVX2-4facfe?style=flat-square" alt="NanoVector"></a>
@@ -8,6 +9,7 @@
   <img src="https://img.shields.io/badge/telemetry-0%25%20(100%25%20offline)-brightgreen?style=flat-square" alt="Privacy">
   <img src="https://img.shields.io/badge/hardware-No%20NPU%20Required-blueviolet?style=flat-square" alt="Hardware">
 </p>
+
 
 <p align="center">
   <b>A high-performance, open-source, 100% private alternative to Microsoft Windows Recall.</b><br>
@@ -80,8 +82,24 @@
 ```
 
 ---
+ 
+## 🚀 Interactive Google Colab Demo
+ 
+Test NanoRecall interactively in your browser with zero local installation:
+ 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/eminsk/nanorecall/blob/main/notebooks/nanorecall_quickstart.ipynb)
+ 
+The [Interactive Colab Notebook](https://colab.research.google.com/github/eminsk/nanorecall/blob/main/notebooks/nanorecall_quickstart.ipynb) demonstrates:
+- **Backend & SIMD Detection:** Verifying NanoRecall and NanoVector AVX2/NEON.
+- **Privacy Shield:** Live simulation blocking 1Password/Incognito windows and redacting API keys.
+- **Desktop Memory & Search:** Ingesting sample desktop screens and querying via natural language in <0.3 ms.
+- **Single-File `.nvec` Persistence:** Saving and restoring the entire screen memory index.
+- **Colab CPU Benchmark:** Benchmarking search latency (15–300 µs) and QPS over 10,000 frames.
+
+---
 
 ## 🚀 Quickstart
+
 
 ### 1. Installation
 
