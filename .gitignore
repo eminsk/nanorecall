@@ -35,9 +35,7 @@ htmlcov/
 # Local NanoRecall Storage
 .nanorecall/
 *.nvec
-*.webp
-*.jpg
-*.png
+
 
 # IDEs
 .vscode/
