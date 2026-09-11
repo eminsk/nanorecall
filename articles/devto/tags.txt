@@ -1,0 +1,5 @@
+Tags:
+privacy, python, ai, opensource
+
+Cover Image URL:
+https://raw.githubusercontent.com/eminsk/nanorecall/main/assets/dashboard_preview.jpg
