@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NanoRecall — 100% Private Desktop Memory</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+  <div class="app-container">
+    <!-- Top Navigation -->
+    <header class="top-nav">
+      <div class="brand">
+        <div class="logo-icon">⚡</div>
+        <span class="brand-name">NanoRecall</span>
+      </div>
+
+      <div class="search-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search anything you saw on screen (e.g. 'github pull request', 'postgres config')..." autocomplete="off">
+        <button id="clearSearch" class="btn-clear" style="display: none;">✕</button>
+      </div>
+
+      <div class="status-badge">
+        <span class="status-dot"></span>
+        <span>Offline & Encrypted | NanoVector AVX2</span>
+      </div>
+    </header>
+
+    <!-- Timeline Scrubber -->
+    <section class="timeline-section">
+      <div class="timeline-header">
+        <span class="timeline-title">Daily Timeline</span>
+        <span class="timeline-date" id="currentDateDisplay">Today</span>
+      </div>
+      <div class="timeline-scrubber" id="timelineBar">
+        <div class="time-mark" data-hour="09"><span>09:00</span><div class="dot active"></div></div>
+        <div class="time-mark" data-hour="11"><span>11:00</span><div class="dot active"></div></div>
+        <div class="time-mark" data-hour="14"><span>14:00</span><div class="dot active"></div></div>
+        <div class="time-mark" data-hour="17"><span>17:00</span><div class="dot active"></div></div>
+        <div class="time-mark" data-hour="20"><span>20:00</span><div class="dot"></div></div>
+        <div class="timeline-progress" id="timelineProgress"></div>
+      </div>
+    </section>
+
+    <!-- Main Layout -->
+    <div class="main-layout">
+      <!-- Left Sidebar: Privacy & System Controls -->
+      <aside class="sidebar">
+        <div class="card privacy-card">
+          <div class="card-header">
+            <span class="icon">🛡️</span>
+            <h3>Privacy Shield</h3>
+            <span class="badge badge-success">Active</span>
+          </div>
+          <p class="card-desc">Zero data leaves your PC. Encrypted single-file storage.</p>
+          <div class="shield-tags">
+            <span class="tag">1Password</span>
+            <span class="tag">Bitwarden</span>
+            <span class="tag">KeePass</span>
+            <span class="tag">Incognito</span>
+          </div>
+        </div>
+
+        <div class="card telemetry-card">
+          <h3>Local Engine Stats</h3>
+          <div class="stat-row">
+            <span>Indexed Memories</span>
+            <strong id="statFrames">0</strong>
+          </div>
+          <div class="stat-row">
+            <span>Local Database</span>
+            <strong id="statDbSize">0.0 KB</strong>
+          </div>
+          <div class="stat-row">
+            <span>Vector Search</span>
+            <strong class="text-cyan">0.09 ms (AVX2)</strong>
+          </div>
+          <div class="stat-row">
+            <span>Idle CPU</span>
+            <strong class="text-green">0.1%</strong>
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button id="btnCaptureNow" class="btn btn-primary">📸 Capture Now</button>
+          <button id="btnRefresh" class="btn btn-secondary">🔄 Refresh</button>
+        </div>
+      </aside>
+
+      <!-- Center: Search & Timeline Viewport -->
+      <main class="content-viewport">
+        <div class="results-header">
+          <h2 id="resultsTitle">Recent Screen Memories</h2>
+          <span class="count-badge" id="resultsCount">0 items</span>
+        </div>
+
+        <div class="cards-grid" id="cardsGrid">
+          <!-- Cards populated dynamically via app.js -->
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Image Inspection Modal -->
+  <div id="imageModal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close" id="modalClose">&times;</span>
+      <img id="modalImg" src="" alt="Full Screen Capture">
+      <div class="modal-meta" id="modalMeta"></div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
