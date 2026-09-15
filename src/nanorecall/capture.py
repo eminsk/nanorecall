@@ -4,10 +4,12 @@ Copyright (c) 2026 eminsk (M_N_Nik@yahoo.com)
 MIT License
 """
 
+from __future__ import annotations
+
 import os
 from datetime import datetime
 from pathlib import Path
-from typing import Optional, Tuple
+from typing import Any, Optional, Tuple
 
 import numpy as np
 try:
@@ -20,7 +22,7 @@ except ImportError:
 class FrameCaptureResult:
     def __init__(
         self,
-        image: Image.Image,
+        image: Any,
         timestamp: str,
         image_path: Optional[str] = None,
         thumb_path: Optional[str] = None,
@@ -64,14 +66,14 @@ class ScreenCaptureEngine:
         self.quality = quality
         self._last_fingerprint: Optional[np.ndarray] = None
 
-    def _compute_fingerprint(self, img: Image.Image) -> np.ndarray:
+    def _compute_fingerprint(self, img: Any) -> np.ndarray:
         """
         Calculates a fast 32x32 grayscale perceptual signature for delta comparison.
         """
         small = img.resize((32, 32), Image.Resampling.BILINEAR).convert("L")
         return np.asarray(small, dtype=np.float32) / 255.0
 
-    def compute_diff(self, img: Image.Image) -> float:
+    def compute_diff(self, img: Any) -> float:
         """
         Returns the normalized difference (0.0 to 1.0) compared to the previous frame.
         """

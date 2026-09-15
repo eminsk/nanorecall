@@ -1,8 +1,4 @@
-"""
-NanoRecall Offline Zero-Cloud OCR Engine
-Copyright (c) 2026 eminsk (M_N_Nik@yahoo.com)
-MIT License
-"""
+from __future__ import annotations
 
 import json
 import os
@@ -10,7 +6,7 @@ import subprocess
 import sys
 import tempfile
 from dataclasses import dataclass, field
-from typing import List, Optional
+from typing import Any, List, Optional
 
 try:
     from PIL import Image
@@ -52,7 +48,7 @@ class OCREngine:
             return "windows_winrt"
         return "fallback"
 
-    def extract_text(self, image: Image.Image) -> OCRResult:
+    def extract_text(self, image: Any) -> OCRResult:
         """
         Extracts all visible text from an image completely offline.
         """
@@ -89,7 +85,7 @@ class OCREngine:
 
         return OCRResult(full_text="", blocks=[], engine="none")
 
-    def _run_windows_ocr(self, image: Image.Image) -> OCRResult:
+    def _run_windows_ocr(self, image: Any) -> OCRResult:
         """
         Executes Windows.Media.Ocr via native PowerShell script.
         Requires zero third-party packages or external models.
