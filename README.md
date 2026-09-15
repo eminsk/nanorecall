@@ -3,15 +3,15 @@
 <p align="center">
   <a href="https://colab.research.google.com/github/eminsk/nanorecall/blob/main/notebooks/nanorecall_quickstart.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"></a>
   <a href="https://github.com/eminsk/nanorecall/actions/workflows/ci.yml"><img src="https://github.com/eminsk/nanorecall/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
-  <a href="https://github.com/eminsk/nanorecall/stargazers"><img src="https://img.shields.io/github/stars/eminsk/nanorecall?style=flat-square&logo=github&color=00f2fe" alt="Stars"></a>
   <a href="https://pypi.org/project/nanorecall/"><img src="https://img.shields.io/badge/pypi-v0.1.0-orange?style=flat-square" alt="PyPI"></a>
+  <a href="https://pypi.org/project/nanorecall/"><img src="https://img.shields.io/badge/python-3.8%20--%203.15-blue?style=flat-square" alt="Python"></a>
+  <a href="https://www.pypy.org/"><img src="https://img.shields.io/badge/PyPy-3.8%20--%203.11-orange?style=flat-square" alt="PyPy"></a>
+  <a href="https://peps.python.org/pep-0703/"><img src="https://img.shields.io/badge/No--GIL-3.13t%20--%203.15t-purple?style=flat-square" alt="No-GIL"></a>
   <a href="https://github.com/eminsk/nanovector"><img src="https://img.shields.io/badge/powered%20by-NanoVector%20AVX2-4facfe?style=flat-square" alt="NanoVector"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat-square" alt="License"></a>
   <img src="https://img.shields.io/badge/telemetry-0%25%20(100%25%20offline)-brightgreen?style=flat-square" alt="Privacy">
   <img src="https://img.shields.io/badge/hardware-No%20NPU%20Required-blueviolet?style=flat-square" alt="Hardware">
-
 </p>
-
 
 <p align="center">
   <b>A high-performance, open-source, 100% private alternative to Microsoft Windows Recall.</b><br>
@@ -21,6 +21,17 @@
 <p align="center">
   <img src="assets/dashboard_preview.jpg" alt="NanoRecall Desktop Memory & Search Dashboard" width="850">
 </p>
+
+---
+
+## 🧩 Universal Compatibility Matrix
+
+| Runtime / Implementation | Supported Versions | Execution Mode | Status |
+|:---|:---|:---|:---:|
+| **CPython (Standard)** | 3.8, 3.9, 3.10, 3.11, 3.12, 3.13, 3.14, 3.15 | Standard bytecode + GIL | ✅ Fully Supported |
+| **CPython (Free-Threaded)** | 3.13t, 3.14t, 3.15t | Multi-core No-GIL (PEP 703) | ✅ Fully Supported |
+| **PyPy (JIT Accelerated)** | 3.8, 3.9, 3.10, 3.11 | High-speed JIT tracing | ✅ Fully Supported |
+| **Operating Systems** | Windows (7, 8, 10, 11), Linux, macOS (Intel & Apple Silicon) | x86_64, ARM64 | ✅ Fully Supported |
 
 ---
 
