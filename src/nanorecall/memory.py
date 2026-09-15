@@ -112,7 +112,8 @@ class FallbackIndex:
         q = query.astype(np.float32)
         scores = np.dot(mat, q)
 
-        indices = np.argsort(-scores)
+        scores_list = scores.tolist() if hasattr(scores, "tolist") else list(scores)
+        indices = sorted(range(len(scores_list)), key=lambda i: scores_list[i], reverse=True)
         results = []
         for idx in indices:
             meta_str = self.metas[idx]
