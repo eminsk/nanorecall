@@ -9,7 +9,7 @@ from nanorecall.memory import FastFeatureEmbedder, MemoryMatch, RecallMemory
 from nanorecall.ocr import OCREngine, OCRResult, TextBlock
 from nanorecall.privacy import DEFAULT_BLACKLIST_KEYWORDS, PrivacyShield
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __author__ = "eminsk (M_N_Nik@yahoo.com)"
 __license__ = "MIT"
 

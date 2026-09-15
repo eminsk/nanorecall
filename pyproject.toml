@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nanorecall"
-version = "0.1.0"
+version = "0.1.1"
 description = "100% Private, Zero-Cloud, Bare-Metal Desktop Memory & Screen Search Engine (Alternative to Windows Recall — No NPU or Cloud Required)."
 readme = "README.md"
 authors = [
