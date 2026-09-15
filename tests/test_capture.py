@@ -9,7 +9,7 @@ from pathlib import Path
 
 import numpy as np
 import pytest
-from PIL import Image
+Image = pytest.importorskip("PIL.Image")
 from nanorecall.capture import ScreenCaptureEngine
 
 

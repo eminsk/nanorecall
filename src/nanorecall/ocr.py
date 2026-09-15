@@ -12,7 +12,10 @@ import tempfile
 from dataclasses import dataclass, field
 from typing import List, Optional
 
-from PIL import Image
+try:
+    from PIL import Image
+except ImportError:
+    Image = None
 
 
 @dataclass

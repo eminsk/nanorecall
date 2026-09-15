@@ -3,7 +3,7 @@ Unit Tests for NanoRecall OCR Engine
 """
 
 import pytest
-from PIL import Image
+Image = pytest.importorskip("PIL.Image")
 from nanorecall.ocr import OCREngine, OCRResult, TextBlock
 
 
