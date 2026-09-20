@@ -3,9 +3,7 @@
 <p align="center">
   <a href="https://pypi.org/project/nanorecall/"><img src="https://img.shields.io/pypi/v/nanorecall.svg?style=flat" alt="PyPI"></a>
   <a href="https://anaconda.org/conda-forge/nanorecall"><img src="https://img.shields.io/conda/vn/conda-forge/nanorecall.svg?style=flat" alt="Conda-Forge"></a>
-  <a href="https://packages.msys2.org/package/mingw-w64-x86_64-python-nanorecall"><img src="https://img.shields.io/badge/MSYS2-pacman-orange.svg?style=flat" alt="MSYS2"></a>
   <a href="https://eminsk.github.io/ppa/"><img src="https://img.shields.io/badge/Debian%20%2F%20Ubuntu-APT%20PPA-E95420.svg?style=flat" alt="Debian / Ubuntu PPA"></a>
-  <a href="https://aur.archlinux.org/packages/python-nanorecall"><img src="https://img.shields.io/badge/Arch_Linux-AUR-1793D1.svg?style=flat" alt="AUR"></a>
   <a href="https://colab.research.google.com/github/eminsk/nanorecall/blob/main/notebooks/nanorecall_quickstart.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"></a>
   <a href="https://github.com/eminsk/nanorecall/actions/workflows/ci.yml"><img src="https://github.com/eminsk/nanorecall/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://pypi.org/project/nanorecall/"><img src="https://img.shields.io/badge/python-3.8%20--%203.15-blue?style=flat-square" alt="Python"></a>
@@ -32,10 +30,8 @@
 |---|---|
 | **PyPI (Standard)** | `pip install nanorecall` |
 | **Conda-Forge** | `conda install -c conda-forge nanorecall` |
-| **MSYS2 (MinGW-w64)** | `pacman -S mingw-w64-x86_64-python-nanorecall` |
 | **Ubuntu / Debian (APT PPA)** | `curl -sS https://eminsk.github.io/ppa/setup.sh \| sudo bash`<br>`sudo apt install python3-nanorecall` |
 | **Ubuntu / Debian (.deb)** | `sudo dpkg -i python3-nanorecall_0.1.1-1_all.deb` |
-| **Arch Linux (AUR)** | `yay -S python-nanorecall` |
 
 
 ---
