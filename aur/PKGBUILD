@@ -1,0 +1,33 @@
+# Maintainer: eminsk <M_N_N@tut.by>
+
+pkgname=python-nanorecall
+_name=nanorecall
+pkgver=0.1.1
+pkgrel=1
+pkgdesc="100% Private, Zero-Cloud, Bare-Metal Desktop Memory & Screen Search Engine"
+arch=('any')
+url="https://github.com/eminsk/nanorecall"
+license=('MIT')
+depends=(
+  'python'
+  'python-numpy'
+)
+makedepends=(
+  'python-build'
+  'python-installer'
+  'python-wheel'
+  'python-setuptools'
+)
+source=("https://files.pythonhosted.org/packages/source/${_name::1}/${_name}/${_name}-${pkgver}.tar.gz")
+sha256sums=('c61768dcd7ede533220c8ff7578c25eacc0f0a96af292e4d8e27c92df5169a99')
+
+build() {
+  cd "${srcdir}/${_name}-${pkgver}"
+  python -m build --wheel --no-isolation
+}
+
+package() {
+  cd "${srcdir}/${_name}-${pkgver}"
+  python -m installer --destdir="${pkgdir}" dist/*.whl
+  install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}

@@ -1,0 +1,17 @@
+pkgbase = python-nanorecall
+	pkgdesc = 100% Private, Zero-Cloud, Bare-Metal Desktop Memory & Screen Search Engine
+	pkgver = 0.1.1
+	pkgrel = 1
+	url = https://github.com/eminsk/nanorecall
+	arch = any
+	license = MIT
+	makedepends = python-build
+	makedepends = python-installer
+	makedepends = python-wheel
+	makedepends = python-setuptools
+	depends = python
+	depends = python-numpy
+	source = https://files.pythonhosted.org/packages/source/n/nanorecall/nanorecall-0.1.1.tar.gz
+	sha256sums = c61768dcd7ede533220c8ff7578c25eacc0f0a96af292e4d8e27c92df5169a99
+
+pkgname = python-nanorecall

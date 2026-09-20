@@ -1,0 +1,21 @@
+Source: python-nanorecall
+Section: python
+Priority: optional
+Maintainer: eminsk <M_N_N@tut.by>
+Build-Depends: debhelper-compat (= 13),
+               dh-python,
+               pybuild-plugin-pyproject,
+               python3-all,
+               python3-setuptools,
+               python3-numpy
+Standards-Version: 4.6.2
+Homepage: https://github.com/eminsk/nanorecall
+
+Package: python3-nanorecall
+Architecture: all
+Depends: ${misc:Depends},
+         ${python3:Depends},
+         python3-numpy
+Description: Private Zero-Cloud Desktop Memory & Screen Search Engine
+ 100% private, zero-cloud bare-metal desktop memory and screen search
+ engine alternative to Windows Recall with zero NPU requirements.
