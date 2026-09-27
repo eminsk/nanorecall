@@ -5,6 +5,8 @@ Copyright (c) 2026 eminsk (M_N_Nik@yahoo.com)
 MIT License
 """
 
+from __future__ import annotations
+
 import hashlib
 import json
 import os
@@ -14,7 +16,10 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable, Dict, List, Optional
 
-import numpy as np
+try:
+    import numpy as np
+except (ImportError, ModuleNotFoundError):
+    np = None
 
 try:
     import nanovector

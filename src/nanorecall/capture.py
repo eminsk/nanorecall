@@ -11,7 +11,10 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Optional, Tuple
 
-import numpy as np
+try:
+    import numpy as np
+except (ImportError, ModuleNotFoundError):
+    np = None
 try:
     from PIL import Image, ImageGrab
 except ImportError:
@@ -66,12 +69,14 @@ class ScreenCaptureEngine:
         self.quality = quality
         self._last_fingerprint: Optional[np.ndarray] = None
 
-    def _compute_fingerprint(self, img: Any) -> np.ndarray:
+    def _compute_fingerprint(self, img: Any) -> Any:
         """
         Calculates a fast 32x32 grayscale perceptual signature for delta comparison.
         """
         small = img.resize((32, 32), Image.Resampling.BILINEAR).convert("L")
-        return np.asarray(small, dtype=np.float32) / 255.0
+        if np is not None:
+            return np.asarray(small, dtype=np.float32) / 255.0
+        return [p / 255.0 for p in small.getdata()]
 
     def compute_diff(self, img: Any) -> float:
         """
@@ -82,8 +87,11 @@ class ScreenCaptureEngine:
             self._last_fingerprint = current_fp
             return 1.0
 
-        diff = float(np.mean(np.abs(current_fp - self._last_fingerprint)))
-        return diff
+        if np is not None and isinstance(current_fp, np.ndarray):
+            diff = float(np.mean(np.abs(current_fp - self._last_fingerprint)))
+        else:
+            diff = sum(abs(a - b) for a, b in zip(current_fp, self._last_fingerprint)) / max(len(current_fp), 1)
+        return float(diff)
 
     def capture_frame(self, force_save: bool = False) -> FrameCaptureResult:
         """
