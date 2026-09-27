@@ -28,7 +28,8 @@
 
 | Platform / Manager | Installation Command |
 |---|---|
-| **PyPI (Standard)** | `pip install nanorecall` |
+| **PyPI (pip)** | `pip install nanorecall` |
+| **PyPI (uv)** | `uv add nanorecall` |
 | **Conda-Forge** | `conda install -c conda-forge nanorecall` |
 | **Ubuntu / Debian (APT PPA)** | `curl -sS https://eminsk.github.io/ppa/setup.sh \| sudo bash`<br>`sudo apt install python3-nanorecall` |
 | **Ubuntu / Debian (.deb)** | `sudo dpkg -i python3-nanorecall_0.1.1-1_all.deb` |
@@ -130,6 +131,8 @@ The [Interactive Colab Notebook](https://colab.research.google.com/github/eminsk
 
 ```bash
 pip install nanorecall
+# or with uv
+uv add nanorecall
 ```
 
 *(Requires Python 3.9+ on Windows, Linux, or macOS)*
