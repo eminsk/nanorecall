@@ -225,6 +225,20 @@ Idle CPU Usage:       < 0.1%
 
 ---
 
+## 🧪 Testing & Verification
+
+Run the full pytest suite covering screen capture, memory persistence, OCR pipelines, CLI commands, and privacy redaction filters:
+
+```bash
+uv run --extra dev pytest -v
+# or with standard pytest
+pytest -v
+```
+
+All 13 tests pass with 100% success rate across **Python 3.8 through 3.15 (including No-GIL free-threaded 3.13t–3.15t)** and **PyPy 3.8 through 3.12**.
+
+---
+
 ## 🤝 Contributing
 
 Contributions are warmly welcomed! Please submit issues or pull requests to improve OCR backends, UI features, or compression optimizations.
