@@ -6,7 +6,7 @@
   <a href="https://eminsk.github.io/ppa/"><img src="https://img.shields.io/badge/Debian%20%2F%20Ubuntu-APT%20PPA-E95420.svg?style=flat" alt="Debian / Ubuntu PPA"></a>
   <a href="https://colab.research.google.com/github/eminsk/nanorecall/blob/main/notebooks/nanorecall_quickstart.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"></a>
   <a href="https://github.com/eminsk/nanorecall/actions/workflows/ci.yml"><img src="https://github.com/eminsk/nanorecall/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
-  <a href="https://pypi.org/project/nanorecall/"><img src="https://img.shields.io/badge/python-3.8%20--%203.15-blue?style=flat-square" alt="Python"></a>
+  <a href="https://pypi.org/project/nanorecall/"><img src="https://img.shields.io/badge/python-3.8%20--%203.16-blue?style=flat-square" alt="Python"></a>
   <a href="https://www.pypy.org/"><img src="https://img.shields.io/badge/PyPy-3.8%20--%203.12-orange?style=flat-square" alt="PyPy"></a>
   <a href="https://peps.python.org/pep-0703/"><img src="https://img.shields.io/badge/No--GIL-3.13t%20--%203.15t-purple?style=flat-square" alt="No-GIL"></a>
   <a href="https://github.com/eminsk/nanovector"><img src="https://img.shields.io/badge/powered%20by-NanoVector%20AVX2-4facfe?style=flat-square" alt="NanoVector"></a>
@@ -32,7 +32,7 @@
 | **PyPI (uv)** | `uv add nanorecall` |
 | **Conda-Forge** | `conda install -c conda-forge nanorecall` |
 | **Ubuntu / Debian (APT PPA)** | `curl -sS https://eminsk.github.io/ppa/setup.sh \| sudo bash`<br>`sudo apt install python3-nanorecall` |
-| **Ubuntu / Debian (.deb)** | `sudo dpkg -i python3-nanorecall_0.1.1-1_all.deb` |
+| **Ubuntu / Debian (.deb)** | `sudo dpkg -i python3-nanorecall_0.1.2-1_all.deb` |
 
 
 ---
@@ -41,7 +41,7 @@
 
 | Runtime / Implementation | Supported Versions | Execution Mode | Status |
 |:---|:---|:---|:---:|
-| **CPython (Standard)** | 3.8, 3.9, 3.10, 3.11, 3.12, 3.13, 3.14, 3.15 | Standard bytecode + GIL | ✅ Fully Supported |
+| **CPython (Standard)** | 3.8, 3.9, 3.10, 3.11, 3.12, 3.13, 3.14, 3.15, 3.16 (Alpha) | Standard bytecode + GIL | ✅ Fully Supported |
 | **CPython (Free-Threaded)** | 3.13t, 3.14t, 3.15t | Multi-core No-GIL (PEP 703) | ✅ Fully Supported |
 | **PyPy (JIT Accelerated)** | 3.8, 3.9, 3.10, 3.11, 3.12 | High-speed JIT tracing | ✅ Fully Supported |
 | **Operating Systems** | Windows (7, 8, 10, 11), Linux, macOS (Intel & Apple Silicon) | x86_64, ARM64 | ✅ Fully Supported |
