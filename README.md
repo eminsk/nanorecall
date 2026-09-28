@@ -32,7 +32,7 @@
 | **PyPI (uv)** | `uv add nanorecall` |
 | **Conda-Forge** | `conda install -c conda-forge nanorecall` |
 | **Ubuntu / Debian (APT PPA)** | `curl -sS https://eminsk.github.io/ppa/setup.sh \| sudo bash`<br>`sudo apt install python3-nanorecall` |
-| **Ubuntu / Debian (.deb)** | `sudo dpkg -i python3-nanorecall_0.1.2-1_all.deb` |
+| **Ubuntu / Debian (.deb)** | `sudo dpkg -i python3-nanorecall_0.1.3-1_all.deb` |
 
 
 ---
