@@ -7,7 +7,6 @@ import shutil
 import tempfile
 from pathlib import Path
 
-import numpy as np
 import pytest
 Image = pytest.importorskip("PIL.Image")
 from nanorecall.capture import ScreenCaptureEngine

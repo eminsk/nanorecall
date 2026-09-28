@@ -6,7 +6,11 @@ import shutil
 import tempfile
 from pathlib import Path
 
-import numpy as np
+try:
+    import numpy as np
+except (ImportError, ModuleNotFoundError):
+    np = None
+import math
 import pytest
 from nanorecall.memory import FastFeatureEmbedder, RecallMemory
 
@@ -24,20 +28,27 @@ def test_feature_embedder():
     vec2 = embedder.encode("sqlfluff pull request 8449 github")
     vec3 = embedder.encode("completely unrelated recipe for chocolate cake")
 
-    assert vec1.shape == (128,)
-    # Normalized unit vector
-    assert np.isclose(np.linalg.norm(vec1), 1.0, atol=1e-4)
-
-    # Identical texts yield identical vectors
-    assert np.allclose(vec1, vec2)
-
-    # Cosine similarity with identical query is 1.0
-    sim_match = float(np.dot(vec1, vec2))
-    assert np.isclose(sim_match, 1.0, atol=1e-4)
-
-    # Unrelated text has low similarity
-    sim_unrelated = float(np.dot(vec1, vec3))
-    assert sim_unrelated < 0.3
+    if np is not None and hasattr(vec1, "shape"):
+        assert vec1.shape == (128,)
+        # Normalized unit vector
+        assert np.isclose(np.linalg.norm(vec1), 1.0, atol=1e-4)
+        # Identical texts yield identical vectors
+        assert np.allclose(vec1, vec2)
+        # Cosine similarity with identical query is 1.0
+        sim_match = float(np.dot(vec1, vec2))
+        assert np.isclose(sim_match, 1.0, atol=1e-4)
+        # Unrelated text has low similarity
+        sim_unrelated = float(np.dot(vec1, vec3))
+        assert sim_unrelated < 0.3
+    else:
+        assert len(vec1) == 128
+        norm = math.sqrt(sum(x * x for x in vec1))
+        assert abs(norm - 1.0) < 1e-4
+        assert vec1 == vec2
+        sim_match = sum(a * b for a, b in zip(vec1, vec2))
+        assert abs(sim_match - 1.0) < 1e-4
+        sim_unrelated = sum(a * b for a, b in zip(vec1, vec3))
+        assert sim_unrelated < 0.3
 
 
 def test_memory_indexing_and_search(temp_memory_dir):

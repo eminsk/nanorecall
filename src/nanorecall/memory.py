@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 import os
 import re
 from dataclasses import dataclass
@@ -60,13 +61,18 @@ class FastFeatureEmbedder:
     """
     Zero-dependency, microsecond subword & token feature hasher.
     Maps text to normalized unit vectors without downloading heavy neural models.
+    Supports both NumPy vectorized and pure-Python zero-dependency execution.
     """
 
     def __init__(self, dim: int = 128):
         self.dim = dim
 
-    def encode(self, text: str) -> np.ndarray:
-        vec = np.zeros(self.dim, dtype=np.float32)
+    def encode(self, text: str) -> Any:
+        if np is not None:
+            vec = np.zeros(self.dim, dtype=np.float32)
+        else:
+            vec = [0.0] * self.dim
+
         if not text:
             return vec
 
@@ -86,9 +92,14 @@ class FastFeatureEmbedder:
                     h_ng = int(hashlib.sha1(ngram.encode("utf-8")).hexdigest(), 16) % self.dim
                     vec[h_ng] += 0.5
 
-        norm = np.linalg.norm(vec)
-        if norm > 0:
-            vec /= norm
+        if np is not None and hasattr(vec, "dtype"):
+            norm = float(np.linalg.norm(vec))
+            if norm > 0:
+                vec /= norm
+        else:
+            norm = math.sqrt(sum(x * x for x in vec))
+            if norm > 0:
+                vec = [x / norm for x in vec]
         return vec
 
 
@@ -99,25 +110,33 @@ class FallbackIndex:
         self.dim = dim
         self.metric = metric
         self.ids: List[str] = []
-        self.vectors: List[np.ndarray] = []
+        self.vectors: List[Any] = []
         self.metas: List[str] = []
 
     def __len__(self) -> int:
         return len(self.ids)
 
-    def add(self, id: str, vector: np.ndarray, metadata: Optional[str] = None) -> None:
+    def add(self, id: str, vector: Any, metadata: Optional[str] = None) -> None:
         self.ids.append(id)
-        self.vectors.append(vector.astype(np.float32))
+        if np is not None and hasattr(vector, "astype"):
+            self.vectors.append(vector.astype(np.float32))
+        elif hasattr(vector, "tolist"):
+            self.vectors.append(vector.tolist())
+        else:
+            self.vectors.append([float(x) for x in vector])
         self.metas.append(metadata or "{}")
 
-    def search(self, query: np.ndarray, top_k: int = 10, filter: Optional[Dict[str, Any]] = None) -> List[Any]:
+    def search(self, query: Any, top_k: int = 10, filter: Optional[Dict[str, Any]] = None) -> List[Any]:
         if not self.ids:
             return []
-        mat = np.array(self.vectors, dtype=np.float32)
-        q = query.astype(np.float32)
-        scores = np.dot(mat, q)
-
-        scores_list = scores.tolist() if hasattr(scores, "tolist") else list(scores)
+        if np is not None and hasattr(query, "astype") and self.vectors and hasattr(self.vectors[0], "dtype"):
+            mat = np.array(self.vectors, dtype=np.float32)
+            q = query.astype(np.float32)
+            scores = np.dot(mat, q)
+            scores_list = scores.tolist() if hasattr(scores, "tolist") else list(scores)
+        else:
+            q_list = query.tolist() if hasattr(query, "tolist") else list(query)
+            scores_list = [sum(a * b for a, b in zip(v, q_list)) for v in self.vectors]
         indices = sorted(range(len(scores_list)), key=lambda i: scores_list[i], reverse=True)
         results = []
         for idx in indices:
