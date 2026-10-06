@@ -173,6 +173,9 @@ def main() -> None:
     # stats
     subparsers.add_parser("stats", help="Show database statistics and footprint")
 
+    # mcp
+    subparsers.add_parser("mcp", help="Run Model Context Protocol (MCP) server over stdio")
+
     args = parser.parse_args()
     if args.command == "capture":
         cmd_capture(args)
@@ -184,6 +187,9 @@ def main() -> None:
         cmd_ui(args)
     elif args.command == "stats":
         cmd_stats(args)
+    elif args.command == "mcp":
+        from nanorecall.mcp_server import main_mcp
+        main_mcp()
     else:
         parser.print_help()
 

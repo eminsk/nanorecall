@@ -76,6 +76,7 @@ all = [
 
 [project.scripts]
 nanorecall = "nanorecall.cli:main"
+nanorecall-mcp = "nanorecall.mcp_server:main_mcp"
 
 [project.urls]
 Homepage = "https://github.com/eminsk/nanorecall"

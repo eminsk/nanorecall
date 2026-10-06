@@ -193,6 +193,54 @@ Run NanoRecall silently in the background:
 nanorecall daemon --interval 3.0
 ```
 
+### 6. Model Context Protocol (MCP) Server
+
+NanoRecall features a native **Model Context Protocol (MCP) Server** over JSON-RPC 2.0 stdio, exposing private desktop memory and real-time screen capture to **Claude Desktop**, **Cursor**, **Windsurf**, and **Google Antigravity**.
+
+#### Quickstart
+
+Run directly via CLI:
+```bash
+nanorecall mcp
+# or using the dedicated entry point:
+nanorecall-mcp
+```
+
+#### Client Configuration
+
+Add to your `claude_desktop_config.json`, `.cursor/mcp.json`, or Antigravity MCP settings:
+
+```json
+{
+  "mcpServers": {
+    "nanorecall": {
+      "command": "nanorecall-mcp"
+    }
+  }
+}
+```
+
+*Or zero-install with `uvx`:*
+```json
+{
+  "mcpServers": {
+    "nanorecall": {
+      "command": "uvx",
+      "args": ["nanorecall", "mcp"]
+    }
+  }
+}
+```
+
+#### Available MCP Tools
+
+| Tool | Purpose | Annotations |
+| :--- | :--- | :---: |
+| `recall_search` | Semantic vector search across screen history, OCR text, and past app windows. | `readOnlyHint: true` |
+| `recall_capture_now` | Capture and index current desktop screen in real-time with privacy shielding. | `readOnlyHint: false` |
+| `recall_remember` | Manually persist custom text facts, notes, or preferences into episodic vector memory. | `readOnlyHint: false` |
+| `recall_get_stats` | Inspect total indexed frames, vector dimension, database size in KB, and storage path. | `readOnlyHint: true` |
+
 ---
 
 ## 🛡️ Privacy Shield Rules
