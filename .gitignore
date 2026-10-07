@@ -39,6 +39,7 @@ htmlcov/
 
 # Local Drafts & Articles (not for git)
 articles/
+sample_frames/
 
 # IDEs
 .vscode/

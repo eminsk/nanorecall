@@ -1,0 +1,40 @@
+context:
+  name: nanorecall
+  version: "0.1.4"
+
+package:
+  name: ${{ name }}
+  version: ${{ version }}
+
+source:
+  path: ..
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
+  python:
+    entry_points:
+      - nanorecall = nanorecall.cli:main
+      - nanorecall-mcp = nanorecall.mcp_server:main_mcp
+
+requirements:
+  host:
+    - python >=3.8
+    - pip
+    - setuptools >=61.0.0
+    - wheel
+  run:
+    - python >=3.8
+    - numpy >=1.20
+
+tests:
+  - python:
+      imports:
+        - nanorecall
+      pip_check: true
+
+about:
+  homepage: https://github.com/eminsk/nanorecall
+  license: MIT
+  summary: 100% Private, Zero-Cloud, Bare-Metal Desktop Memory & Screen Search Engine
