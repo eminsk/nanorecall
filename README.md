@@ -310,15 +310,19 @@ Contributions are warmly welcomed! Please submit issues or pull requests to impr
 
 ---
 
-## ☕ Support & Donations
+## ☕ Support, Community & Donations
 
-If you find this project valuable and would like to support ongoing development, privacy-first desktop memory, and offline OCR features, contributions are deeply appreciated!
+If you find this project valuable and would like to support ongoing development:
 
-* **USDT (TRC-20)**:  
+* ⭐ **Star the Repository**: If NanoRecall helps you effortlessly search and recall your screen memory, give us a star on GitHub — it helps more developers discover private desktop memory!
+* 💬 **Join Discussions**: Have ideas, use cases, or OCR models to suggest? Start or join a thread in [GitHub Discussions](https://github.com/eminsk/nanorecall/discussions)!
+* ☕ **Donate (USDT TRC-20)**:  
   `TDVbEdnpgNgoAhNcn1EwXxWHiR3RKLit5P`  
   *(Network: TRON / TRC-20 | [Verify on TronScan](https://tronscan.org/#/address/TDVbEdnpgNgoAhNcn1EwXxWHiR3RKLit5P))*
 
-[![Donate USDT](https://img.shields.io/badge/Donate-USDT_(TRC20)-26A17B?style=for-the-badge&logo=tether&logoColor=white)](https://tronscan.org/#/address/TDVbEdnpgNgoAhNcn1EwXxWHiR3RKLit5P)
+[![GitHub Repo stars](https://img.shields.io/github/stars/eminsk/nanorecall?style=social)](https://github.com/eminsk/nanorecall)
+[![GitHub Discussions](https://img.shields.io/badge/Discussions-Join_Community-blue?logo=github&style=flat-square)](https://github.com/eminsk/nanorecall/discussions)
+[![Donate USDT](https://img.shields.io/badge/Donate-USDT_(TRC20)-26A17B?style=flat-square&logo=tether&logoColor=white)](https://tronscan.org/#/address/TDVbEdnpgNgoAhNcn1EwXxWHiR3RKLit5P)
 
 ---
 
