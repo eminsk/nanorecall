@@ -161,7 +161,7 @@ class FallbackIndex:
                     self.score = float(score)
                     self.metadata = metadata
 
-            results.append(SimpleMatch(self.ids[idx], scores[idx], meta_str))
+            results.append(SimpleMatch(self.ids[idx], scores_list[idx], meta_str))
             if len(results) >= top_k:
                 break
         return results
@@ -170,7 +170,7 @@ class FallbackIndex:
         data = {
             "dim": self.dim,
             "ids": self.ids,
-            "vectors": [v.tolist() for v in self.vectors],
+            "vectors": [v.tolist() if hasattr(v, "tolist") else list(v) for v in self.vectors],
             "metas": self.metas,
         }
         with open(path, "w", encoding="utf-8") as f:
@@ -182,7 +182,7 @@ class FallbackIndex:
             data = json.load(f)
         idx = cls(dim=data["dim"])
         idx.ids = data["ids"]
-        idx.vectors = [np.array(v, dtype=np.float32) for v in data["vectors"]]
+        idx.vectors = [np.array(v, dtype=np.float32) if np is not None else [float(x) for x in v] for v in data["vectors"]]
         idx.metas = data["metas"]
         return idx
 
