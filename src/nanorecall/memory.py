@@ -95,7 +95,7 @@ class FastFeatureEmbedder:
         if np is not None and hasattr(vec, "dtype"):
             norm = float(np.linalg.norm(vec))
             if norm > 0:
-                vec /= norm
+                vec = vec / norm
         else:
             norm = math.sqrt(sum(x * x for x in vec))
             if norm > 0:
