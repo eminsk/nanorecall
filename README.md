@@ -13,7 +13,11 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat-square" alt="License"></a>
   <img src="https://img.shields.io/badge/telemetry-0%25%20(100%25%20offline)-brightgreen?style=flat-square" alt="Privacy">
   <img src="https://img.shields.io/badge/hardware-No%20NPU%20Required-blueviolet?style=flat-square" alt="Hardware">
+  <a href="https://tronscan.org/#/address/TDVbEdnpgNgoAhNcn1EwXxWHiR3RKLit5P"><img src="https://img.shields.io/badge/Donate-USDT_(TRC20)-26A17B?style=flat-square&logo=tether&logoColor=white" alt="Donate USDT"></a>
 </p>
+
+> ⭐ **Enjoying NanoRecall?** Give it a star on GitHub to support development!  
+> ☕ **Want to support the author?** USDT (TRC-20): `TDVbEdnpgNgoAhNcn1EwXxWHiR3RKLit5P` ([TronScan](https://tronscan.org/#/address/TDVbEdnpgNgoAhNcn1EwXxWHiR3RKLit5P))
 
 <p align="center">
   <b>A high-performance, open-source, 100% private alternative to Microsoft Windows Recall.</b><br>
@@ -303,6 +307,18 @@ All 13 tests pass with 100% success rate across **Python 3.8 through 3.16 (inclu
 ## 🤝 Contributing
 
 Contributions are warmly welcomed! Please submit issues or pull requests to improve OCR backends, UI features, or compression optimizations.
+
+---
+
+## ☕ Support & Donations
+
+If you find this project valuable and would like to support ongoing development, privacy-first desktop memory, and offline OCR features, contributions are deeply appreciated!
+
+* **USDT (TRC-20)**:  
+  `TDVbEdnpgNgoAhNcn1EwXxWHiR3RKLit5P`  
+  *(Network: TRON / TRC-20 | [Verify on TronScan](https://tronscan.org/#/address/TDVbEdnpgNgoAhNcn1EwXxWHiR3RKLit5P))*
+
+[![Donate USDT](https://img.shields.io/badge/Donate-USDT_(TRC20)-26A17B?style=for-the-badge&logo=tether&logoColor=white)](https://tronscan.org/#/address/TDVbEdnpgNgoAhNcn1EwXxWHiR3RKLit5P)
 
 ---
 
