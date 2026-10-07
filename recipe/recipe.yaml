@@ -1,6 +1,6 @@
 context:
   name: nanorecall
-  version: "0.1.4"
+  version: "0.1.5"
 
 package:
   name: ${{ name }}
@@ -26,7 +26,6 @@ requirements:
     - wheel
   run:
     - python >=3.8
-    - numpy >=1.20
 
 tests:
   - python:
