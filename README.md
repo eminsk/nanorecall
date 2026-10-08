@@ -2,10 +2,13 @@
 
 <p align="center">
   <a href="https://pypi.org/project/nanorecall/"><img src="https://img.shields.io/pypi/v/nanorecall.svg?style=flat" alt="PyPI"></a>
-  <a href="https://anaconda.org/m_n_nik/nanorecall"><img src="https://img.shields.io/conda/vn/m_n_nik/nanorecall.svg?style=flat&logo=anaconda" alt="Conda"></a>
+  <a href="https://anaconda.org/conda-forge/nanorecall"><img src="https://img.shields.io/conda/vn/conda-forge/nanorecall.svg?style=flat&logo=condaforge" alt="Conda-Forge"></a>
   <a href="https://eminsk.github.io/ppa/"><img src="https://img.shields.io/badge/Debian%20%2F%20Ubuntu-APT%20PPA-E95420.svg?style=flat" alt="Debian / Ubuntu PPA"></a>
-  <a href="https://colab.research.google.com/github/eminsk/nanorecall/blob/main/notebooks/nanorecall_quickstart.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"></a>
   <a href="https://github.com/eminsk/nanorecall/actions/workflows/ci.yml"><img src="https://github.com/eminsk/nanorecall/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+  <a href="https://github.com/eminsk/nanorecall/stargazers"><img src="https://img.shields.io/github/stars/eminsk/nanorecall?style=flat&logo=github" alt="Stars"></a>
+  <a href="https://github.com/eminsk/nanorecall/issues"><img src="https://img.shields.io/github/issues/eminsk/nanorecall?style=flat&color=red&logo=github" alt="Issues"></a>
+  <a href="https://github.com/eminsk/nanorecall/discussions"><img src="https://img.shields.io/badge/Discussions-Join_Community-blue?style=flat&logo=github" alt="Discussions"></a>
+  <a href="https://colab.research.google.com/github/eminsk/nanorecall/blob/main/notebooks/nanorecall_quickstart.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open in Colab"></a>
   <a href="https://pypi.org/project/nanorecall/"><img src="https://img.shields.io/badge/python-3.8%20--%203.16-blue?style=flat-square" alt="Python"></a>
   <a href="https://www.pypy.org/"><img src="https://img.shields.io/badge/PyPy-3.8%20--%203.12-orange?style=flat-square" alt="PyPy"></a>
   <a href="https://peps.python.org/pep-0703/"><img src="https://img.shields.io/badge/No--GIL-3.13t%20--%203.16t-purple?style=flat-square" alt="No-GIL"></a>
@@ -16,8 +19,11 @@
   <a href="https://tronscan.org/#/address/TDVbEdnpgNgoAhNcn1EwXxWHiR3RKLit5P"><img src="https://img.shields.io/badge/Donate-USDT_(TRC20)-26A17B?style=flat-square&logo=tether&logoColor=white" alt="Donate USDT"></a>
 </p>
 
-> ⭐ **Enjoying NanoRecall?** Give it a star on GitHub to support development!  
-> ☕ **Want to support the author?** USDT (TRC-20): `TDVbEdnpgNgoAhNcn1EwXxWHiR3RKLit5P` ([TronScan](https://tronscan.org/#/address/TDVbEdnpgNgoAhNcn1EwXxWHiR3RKLit5P))
+> ### 🤝 Community, Issues & Support
+> - 🐛 **Found a bug, screen capture issue, or memory leak?** Please [Open an Issue](https://github.com/eminsk/nanorecall/issues) — reports are tracked and resolved quickly!
+> - 💬 **Questions, UI ideas, or integration requests?** Join our [GitHub Discussions](https://github.com/eminsk/nanorecall/discussions).
+> - ⭐ **Find NanoRecall useful?** Give it a star on GitHub — it helps more privacy-conscious users discover the project!
+> - ☕ **Support development (USDT TRC-20):** `TDVbEdnpgNgoAhNcn1EwXxWHiR3RKLit5P` ([Verify on TronScan](https://tronscan.org/#/address/TDVbEdnpgNgoAhNcn1EwXxWHiR3RKLit5P))
 
 <p align="center">
   <b>A high-performance, open-source, 100% private alternative to Microsoft Windows Recall.</b><br>
