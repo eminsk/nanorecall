@@ -1,3 +1,10 @@
+python-nanorecall (0.1.7-1) unstable; urgency=medium
+
+  * Fix Any type annotations and enable future annotations across all modules.
+  * Update FASM bare-metal SIMD hardware microkernels integration.
+
+ -- eminsk <M_N_N@tut.by>  Fri, 09 Oct 2026 21:26:00 +0000
+
 python-nanorecall (0.1.6-1) unstable; urgency=medium
 
   * Release version 0.1.6 with Flat Assembler (FASM) bare-metal SIMD microkernels.
