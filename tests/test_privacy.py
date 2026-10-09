@@ -48,3 +48,16 @@ def test_disabled_shield():
     shield = PrivacyShield(enabled=False)
     assert shield.is_window_private("1Password") is False
     assert shield.redact_text("sk-1234567890abcdef1234567890abcdef1234") == "sk-1234567890abcdef1234567890abcdef1234"
+    assert shield.mask_sensitive_region([0] * 64, 8, 8, 8, 0, 0, 4, 4) == 0
+
+
+def test_mask_sensitive_region():
+    shield = PrivacyShield(enabled=True)
+    pixels = [0xFFFFFFFF] * 64
+    ret = shield.mask_sensitive_region(pixels, width=8, height=8, stride=8, rx=2, ry=2, rw=4, rh=4, color=0x00000000)
+    assert ret == 0
+    # Center pixel should be masked
+    assert pixels[2 * 8 + 2] == 0x00000000
+    # Corner pixel should remain untouched
+    assert pixels[0] == 0xFFFFFFFF
+

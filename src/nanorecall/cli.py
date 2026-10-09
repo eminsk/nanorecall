@@ -4,6 +4,8 @@ Copyright (c) 2026 eminsk (M_N_Nik@yahoo.com)
 MIT License
 """
 
+from __future__ import annotations
+
 import argparse
 import sys
 import time

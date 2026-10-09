@@ -4,10 +4,12 @@ Copyright (c) 2026 eminsk (M_N_Nik@yahoo.com)
 MIT License
 """
 
+from __future__ import annotations
+
 import os
 import re
 import sys
-from typing import List, Optional, Set, Tuple
+from typing import Any, List, Optional, Set, Tuple
 
 
 DEFAULT_BLACKLIST_KEYWORDS: Set[str] = {

@@ -67,7 +67,7 @@ class ScreenCaptureEngine:
         self.thumb_size = thumb_size
         self.format = format.upper()
         self.quality = quality
-        self._last_fingerprint: Optional[np.ndarray] = None
+        self._last_fingerprint: Optional[Any] = None
 
     def _compute_fingerprint(self, img: Any) -> Any:
         """

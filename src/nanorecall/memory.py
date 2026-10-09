@@ -246,7 +246,7 @@ class RecallMemory:
             return Index(dim=self.embed_dim, metric="cosine")
         return FallbackIndex(dim=self.embed_dim, metric="cosine")
 
-    def encode_text(self, text: str) -> np.ndarray:
+    def encode_text(self, text: str) -> Any:
         if self.use_neural and hasattr(self.embedder, "encode"):
             return self.embedder.encode([text], normalize_embeddings=True, show_progress_bar=False)[0].astype(np.float32)
         return self.embedder.encode(text)
