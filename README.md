@@ -1,7 +1,7 @@
 # ⚡ NanoRecall: 100% Private Desktop Memory & Screen Search
 
 <p align="center">
-  <a href="https://pypi.org/project/nanorecall/"><img src="https://img.shields.io/pypi/v/nanorecall.svg?style=flat" alt="PyPI"></a>
+  <a href="https://pypi.org/project/nanorecall/"><img src="https://img.shields.io/pypi/v/nanorecall.svg?style=flat&logo=pypi" alt="PyPI"></a>
   <a href="https://anaconda.org/conda-forge/nanorecall"><img src="https://img.shields.io/conda/vn/conda-forge/nanorecall.svg?style=flat&logo=condaforge" alt="Conda-Forge"></a>
   <a href="https://eminsk.github.io/ppa/"><img src="https://img.shields.io/badge/Debian%20%2F%20Ubuntu-APT%20PPA-E95420.svg?style=flat" alt="Debian / Ubuntu PPA"></a>
   <a href="https://github.com/eminsk/nanorecall/actions/workflows/ci.yml"><img src="https://github.com/eminsk/nanorecall/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
@@ -41,9 +41,9 @@
 |---|---|
 | **PyPI (pip)** | `pip install nanorecall` |
 | **PyPI (uv)** | `uv add nanorecall` |
-| **Conda (Anaconda.org)** | `conda install -c m_n_nik nanorecall` |
+| **Conda (Conda-Forge)** | `conda install -c conda-forge nanorecall` \| `pixi add nanorecall` |
 | **Ubuntu / Debian (APT PPA)** | `curl -sS https://eminsk.github.io/ppa/setup.sh \| sudo bash`<br>`sudo apt install python3-nanorecall` |
-| **Ubuntu / Debian (.deb)** | `sudo dpkg -i python3-nanorecall_0.1.3-1_all.deb` |
+| **Ubuntu / Debian (.deb)** | `sudo dpkg -i python3-nanorecall_0.1.7-1_all.deb` |
 
 
 ---
