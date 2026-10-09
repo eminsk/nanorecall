@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "nanorecall"
-version = "0.1.5"
-description = "100% Private, Zero-Cloud, Bare-Metal Desktop Memory & Screen Search Engine (Alternative to Windows Recall — No NPU or Cloud Required)."
+version = "0.1.6"
+description = "100% Private, Zero-Cloud, Bare-Metal Desktop Memory & Screen Search Engine (Alternative to Windows Recall — No NPU or Cloud Required, FASM AVX2+FMA/SSE2 Accelerated)."
 readme = "README.md"
 authors = [
     { name = "eminsk", email = "M_N_Nik@yahoo.com" }
@@ -89,5 +89,10 @@ pythonpath = ["src"]
 testpaths = ["tests"]
 
 [tool.setuptools.package-data]
-nanorecall = ["web/*"]
+nanorecall = ["web/*", "*.dll", "*.so", "*.dylib"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+]
 

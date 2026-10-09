@@ -53,6 +53,13 @@ jobs:
         python -m pip install "pillow>=9.0" --only-binary :all: || true
         pip install -e . --no-build-isolation --no-deps || pip install -e . --no-deps
 
+    - name: Compile native SIMD kernels
+      run: |
+        if [ -f asm/build.sh ]; then
+          bash asm/build.sh || true
+        fi
+      shell: bash
+
     - name: Run test suite
       run: |
         pytest -v || python -c "import nanorecall; print('=== NanoRecall ===', nanorecall.__file__)"
@@ -115,4 +122,7 @@ jobs:
           $PYTHON_BIN -m ensurepip --default-pip || true
           $PYTHON_BIN -m pip install --upgrade pip pytest || true
           $PYTHON_BIN -m pip install -e . --no-deps || true
+          if [ -f asm/build.sh ]; then
+            bash asm/build.sh || true
+          fi
           $PYTHON_BIN ${{ matrix.gil-flag }} -m pytest -v tests/ || $PYTHON_BIN ${{ matrix.gil-flag }} -m unittest discover -s tests/

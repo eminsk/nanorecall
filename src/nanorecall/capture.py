@@ -87,6 +87,13 @@ class ScreenCaptureEngine:
             self._last_fingerprint = current_fp
             return 1.0
 
+        from nanorecall.fasm import default_engine, is_fasm_available
+
+        if is_fasm_available():
+            fp_a = current_fp.ravel() if hasattr(current_fp, "ravel") else current_fp
+            fp_b = self._last_fingerprint.ravel() if hasattr(self._last_fingerprint, "ravel") else self._last_fingerprint
+            return default_engine.frame_diff_f32(fp_a, fp_b)
+
         if np is not None and isinstance(current_fp, np.ndarray):
             diff = float(np.mean(np.abs(current_fp - self._last_fingerprint)))
         else:

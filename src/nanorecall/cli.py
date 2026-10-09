@@ -133,15 +133,31 @@ def cmd_ui(args: argparse.Namespace) -> None:
 
 
 def cmd_stats(args: argparse.Namespace) -> None:
+    from nanorecall.fasm import is_fasm_available, simd_backend
     memory = RecallMemory()
     stats = memory.get_stats()
     print("\n⚡ NanoRecall Engine Telemetry:")
     print("-" * 40)
     print(f"Total Indexed Frames: {stats['total_frames']}")
     print(f"Vector Dimension:     {stats['vector_dim']}D")
-    print(f"Active Backend:       {stats['backend']}")
+    print(f"Memory Index Engine:  {stats['backend']}")
+    print(f"Hardware SIMD ISA:    {simd_backend()}")
+    print(f"FASM Acceleration:    {'Active' if is_fasm_available() else 'Fallback'}")
     print(f"Local Database Size:  {stats['file_size_kb']} KB")
     print(f"Database Location:    {stats['file_path']}\n")
+
+
+def cmd_info(args: argparse.Namespace) -> None:
+    from nanorecall import __version__
+    from nanorecall.fasm import is_fasm_available, simd_backend
+    print(f"\n=======================================================")
+    print(f"  ⚡ NanoRecall v{__version__} Bare-Metal Hardware Engine")
+    print(f"=======================================================")
+    print(f"  Active SIMD Backend:  {simd_backend()}")
+    print(f"  FASM Acceleration:    {'Enabled (Bare-Metal Assembly)' if is_fasm_available() else 'Disabled'}")
+    print(f"  Python Runtime:       {sys.version.split()[0]} ({sys.platform})")
+    print(f"  64-bit Architecture:  {sys.maxsize > 2**32}")
+    print(f"=======================================================\n")
 
 
 def main() -> None:
@@ -173,6 +189,9 @@ def main() -> None:
     # stats
     subparsers.add_parser("stats", help="Show database statistics and footprint")
 
+    # info
+    subparsers.add_parser("info", help="Display version and hardware SIMD ISA status")
+
     # mcp
     subparsers.add_parser("mcp", help="Run Model Context Protocol (MCP) server over stdio")
 
@@ -187,6 +206,8 @@ def main() -> None:
         cmd_ui(args)
     elif args.command == "stats":
         cmd_stats(args)
+    elif args.command == "info":
+        cmd_info(args)
     elif args.command == "mcp":
         from nanorecall.mcp_server import main_mcp
         main_mcp()

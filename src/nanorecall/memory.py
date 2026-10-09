@@ -92,6 +92,12 @@ class FastFeatureEmbedder:
                     h_ng = int(hashlib.sha1(ngram.encode("utf-8")).hexdigest(), 16) % self.dim
                     vec[h_ng] += 0.5
 
+        from nanorecall.fasm import default_engine, is_fasm_available
+
+        if is_fasm_available():
+            default_engine.vector_normalize(vec)
+            return vec
+
         if np is not None and hasattr(vec, "dtype"):
             norm = float(np.linalg.norm(vec))
             if norm > 0:
@@ -104,7 +110,7 @@ class FastFeatureEmbedder:
 
 
 class FallbackIndex:
-    """Pure-Python fallback index when NanoVector binary extension is loading."""
+    """Pure-Python / FASM hardware index when NanoVector binary extension is loading."""
 
     def __init__(self, dim: int, metric: str = "cosine"):
         self.dim = dim
@@ -129,13 +135,18 @@ class FallbackIndex:
     def search(self, query: Any, top_k: int = 10, filter: Optional[Dict[str, Any]] = None) -> List[Any]:
         if not self.ids:
             return []
-        if np is not None and hasattr(query, "astype") and self.vectors and hasattr(self.vectors[0], "dtype"):
+
+        from nanorecall.fasm import default_engine, is_fasm_available
+
+        q_list = query.tolist() if hasattr(query, "tolist") else list(query)
+        if is_fasm_available():
+            scores_list = default_engine.batch_search_cosine(q_list, self.vectors)
+        elif np is not None and hasattr(query, "astype") and self.vectors and hasattr(self.vectors[0], "dtype"):
             mat = np.array(self.vectors, dtype=np.float32)
             q = query.astype(np.float32)
             scores = np.dot(mat, q)
             scores_list = scores.tolist() if hasattr(scores, "tolist") else list(scores)
         else:
-            q_list = query.tolist() if hasattr(query, "tolist") else list(query)
             scores_list = [sum(a * b for a, b in zip(v, q_list)) for v in self.vectors]
         indices = sorted(range(len(scores_list)), key=lambda i: scores_list[i], reverse=True)
         results = []

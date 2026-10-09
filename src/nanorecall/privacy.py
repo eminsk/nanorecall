@@ -129,3 +129,24 @@ class PrivacyShield:
         # Only redact if matches card length without destroying standard numbers
         redacted = CREDIT_CARD_REGEX.sub("[REDACTED_CARD]", redacted)
         return redacted
+
+    def mask_sensitive_region(
+        self,
+        pixels: Any,
+        width: int,
+        height: int,
+        stride: int,
+        rx: int,
+        ry: int,
+        rw: int,
+        rh: int,
+        color: int = 0xFF000000,
+    ) -> int:
+        """
+        Hardware-accelerated screen rectangle masking for privacy redaction.
+        Fills the specified bounding box directly in pixel buffers.
+        """
+        if not self.enabled:
+            return 0
+        from nanorecall.fasm import default_engine
+        return default_engine.mask_rect_rgba(pixels, width, height, stride, rx, ry, rw, rh, color)
