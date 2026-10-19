@@ -3,6 +3,8 @@
 <p align="center">
   <a href="https://pypi.org/project/nanorecall/"><img src="https://img.shields.io/pypi/v/nanorecall.svg?style=flat&logo=pypi" alt="PyPI"></a>
   <a href="https://anaconda.org/conda-forge/nanorecall"><img src="https://img.shields.io/conda/vn/conda-forge/nanorecall.svg?style=flat&logo=condaforge" alt="Conda-Forge"></a>
+  <a href="https://pypi.org/project/nanorecall/"><img src="https://img.shields.io/pypi/dm/nanorecall.svg?style=flat&logo=pypi" alt="PyPI Downloads"></a>
+  <a href="https://anaconda.org/conda-forge/nanorecall"><img src="https://img.shields.io/conda/dn/conda-forge/nanorecall.svg?style=flat&logo=condaforge" alt="Conda Downloads"></a>
   <a href="https://eminsk.github.io/ppa/"><img src="https://img.shields.io/badge/Debian%20%2F%20Ubuntu-APT%20PPA-E95420.svg?style=flat" alt="Debian / Ubuntu PPA"></a>
   <a href="https://github.com/eminsk/nanorecall/actions/workflows/ci.yml"><img src="https://github.com/eminsk/nanorecall/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://github.com/eminsk/nanorecall/stargazers"><img src="https://img.shields.io/github/stars/eminsk/nanorecall?style=flat&logo=github" alt="Stars"></a>
