@@ -79,7 +79,7 @@ nanorecall = "nanorecall.cli:main"
 nanorecall-mcp = "nanorecall.mcp_server:main_mcp"
 
 [project.urls]
-Homepage = "https://github.com/eminsk/nanorecall"
+Homepage = "https://eminsk.github.io/#nanorecall"
 Documentation = "https://github.com/eminsk/nanorecall#readme"
 Repository = "https://github.com/eminsk/nanorecall"
 "Issue Tracker" = "https://github.com/eminsk/nanorecall/issues"
